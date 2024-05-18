@@ -1,10 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Welcome</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CV - Ari Sohandri Putra</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup-content button:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<h1>Coming Soon</h1>
-<p>this website under maintenance</p>
+    <header>
+        <div class="header-content">
+            <h1>ARI SOHANDRI PUTRA</h1>
+            <p>Software Developer | IT Support | Passionate Open Source Contributor</p>
+        </div>
+    </header>
+    <main>
+        <section class="about">
+            <div class="container">
+                <h2>About</h2>
+                <p>I am a <b>software developer</b> specializing in Windows Desktop environments, as well as an <b>IT Support Technician</b> at <b>Surya Computer</b>. I also actively contribute to various open source software projects, including <b>PhotoDemon</b>, <b>VLC Media Player (VideoLAN)</b>, and <b>Mozilla Firefox</b>.
+                I have successfully independently developed software utilities and data security solutions since 2015 until now. 
+                Among the software products I have published are <b>uDiscMounter</b> and <b>DocEncryptor</b>, while I am also developing several other software projects.
+                I have a special interest in IT and enthusiastically seek new experiences in IT support and software development, all aimed at furthering my career in the future.</p>
+            </div>
+        </section>
+        <section class="experience">
+            <div class="container">
+                <h2>Experience</h2>
+                <div class="job">
+                    <h3>Surya Computer</h3>
+                    <p>2022 - Now | <b>IT Support Technician</b></p>
+                    <i>Link : <a href="https://sites.google.com/view/suryacomputer/halaman-muka">Click Here</a></i>
+                </div>
+                <div class="job">
+                    <h3>PhotoDemon.org</h3>
+                    <p>2017 - 2020 | <b>Software Developer</b></p>
+                    <i>Link : <a href="https://github.com/tannerhelland/PhotoDemon/blob/main/AUTHORS.md">Click Here</a></i>
+                    <p>2014 - 2017 | <b>Contributor</b></p>
+                    <i>Link : <a href="https://photodemon.org/contributors/">Click Here</a></i>
+                </div>
+                <!-- Tambahkan pengalaman kerja lainnya sesuai kebutuhan -->
+            </div>
+        </section>
+		<section class="experience">
+            <div class="container">
+                <h2>Publication</h2>
+                <div class="job">
+                    <h3>uDiscMounter</h3>
+                    <p>2015 - Now | <b>CD/DVD File Mount Tools</b></p>
+                    <i>Website : <a href="http://udiscmounter.rf.gd/">Homepage</a></i>
+                </div>
+                <div class="job">
+                    <h3>DocEncryptor</h3>
+                    <p>2017 - Now | <b>Security Utilities and Data Encryption</b></p>
+                    <i>Website : <a href="http://docencryptor.rf.gd/">Homepage</a></i></br>
+                    <i>Source Code (Engine Only): <a href="https://github.com/arisohandriputra/docencryptor">GitHub</a></i>
+                </div>
+                <!-- Tambahkan pengalaman kerja lainnya sesuai kebutuhan -->
+            </div>
+        </section>
+        <section class="education">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>SMK Negeri 1 Selong</h3>
+                    <p>2015 - 2018 | <b>Software Engineering</b></p>
+                </div>
+                <!-- Tambahkan riwayat pendidikan lainnya sesuai kebutuhan -->
+            </div>
+        </section>
+        <section class="skills">
+            <div class="container">
+                <h2>Skills</h2>
+                <p><b>Software Development</b></p>
+                <ul>
+                    <li>VB.NET</li>
+                    <li>SQL/MySQL</li>
+                    <li>Python</li>
+                    <li>C/C++</li>
+                </ul>
+                <p><b>Web Development</b></p>
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>WordPress</li>
+                    <li>Git/GitHub</li>
+                </ul>
+                <p><b>IT Support</b></p>
+                <ul>
+                    <li>Server Administrator</li>
+                    <li>Network Installation</li>
+                    <li>Repair and Maintenance</li>
+                    <li>Communications</li>
+                </ul>
+            </div>
+        </section>
+        <section class="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>Linkedin: <a href="https://www.linkedin.com/in/arisohandriputra/">Ari Sohandri Putra</a></p>
+                <p>Email: <a href="mailto:arisohandriputra@gmail.com">arisohandriputra@gmail.com</a></p>
+                <p>Phone: +62 81353561716</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Ari Sohandri Putra. Please do not abuse the content on this website.</p>
+    </footer>
+
+    <!-- Popup for Cookie and Data Warning -->
+    <div id="cookiePopup" class="popup">
+        <div class="popup-content">
+            <h2>Cookie Consent and Data Warning</h2>
+            <p>This website uses cookies to ensure you get the best experience. Additionally, it contains personal data of the owner. Please do not misuse this information.</p>
+            <button onclick="acceptCookieConsent()">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the cookie popup
+        function showCookiePopup() {
+            var popup = document.getElementById('cookiePopup');
+            popup.style.display = 'flex';
+        }
+
+        // Function to accept cookie consent and hide the popup
+        function acceptCookieConsent() {
+            var popup = document.getElementById('cookiePopup');
+            popup.style.display = 'none';
+            // You can add code here to set a cookie to remember user's consent
+        }
+
+        // Show the popup when the page loads
+        window.onload = function() {
+            showCookiePopup();
+        };
+    </script>
 </body>
 </html>
