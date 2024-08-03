@@ -5,7 +5,71 @@
 	<TITLE>Software Development | Ari Project</TITLE>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </HEAD>
+<STYLE>
+	#contact-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
 
+#contact-popup img {
+    width: 50px;
+    height: 50px;
+}
+
+#contact-form {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border: 2px solid #000;
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+}
+
+#contact-form.hidden {
+    display: none;
+}
+
+#contact-form h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#contact-form label {
+    margin-top: 10px;
+}
+
+#contact-form input, #contact-form textarea {
+    margin-top: 5px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
+#contact-form button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#contact-form button:hover {
+    background-color: #0056b3;
+}
+</STYLE>
 <BODY BGCOLOR="#feffe7" LINK="#162323" ALINK="#feffe7" VLINK="#162323">
 
 <CENTER>
@@ -73,7 +137,63 @@ E-Mail <A HREF="mailto:service.ariproject@hotmail.com">service.ariproject@hotmai
 </CENTER>
 </CENTER>
 	</BLOCKQUOTE>
+<div id="contact-popup" onclick="toggleContactForm()">
+    <img src="..\res\telegram.png" alt="Contact Us">
+</div>
 
+<div id="contact-form" class="hidden">
+    <form id="telegramForm">
+        <h2>Contact Us</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</div>
+<script>
+    function toggleContactForm() {
+        var contactForm = document.getElementById('contact-form');
+        if (contactForm.classList.contains('hidden')) {
+            contactForm.classList.remove('hidden');
+        } else {
+            contactForm.classList.add('hidden');
+        }
+    }
+
+    document.getElementById('telegramForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
+        var telegramMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+
+        var telegramBotToken = '6581839086:AAElfTP5dTna9f9Qu0tR9f-ubA4rPDSfJd8';
+        var telegramChatId = '6295226491';
+        var telegramUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", telegramUrl, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            chat_id: telegramChatId,
+            text: telegramMessage
+        }));
+
+        xhr.onload = function() {
+            if (xhr.status == 200) {
+                alert('Message sent successfully!');
+                document.getElementById('telegramForm').reset();
+                toggleContactForm();
+            } else {
+                alert('Failed to send message. Please try again later.');
+            }
+        };
+    });
+</script>
 
 </BODY>
 
