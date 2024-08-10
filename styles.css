@@ -1,0 +1,149 @@
+body {
+   background-color: #feffee;
+    color: #162323;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+a {
+    color: #162323;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #162323;
+}
+
+a:hover {
+    color: #feffe7;
+    background-color: #162323;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td {
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+    td img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.player-container {
+            width: 320px; /* Ukuran player */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #f5f5f5;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+        .album-artwork {
+            width: 250px;
+            height: 250px;
+            background: #ddd;
+            background-image: url('res/illusions.jpg'); /* Ganti dengan path artwork */
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+        }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .playlist {
+            margin-top: 10px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .playlist li {
+            cursor: pointer;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            background: #eee;
+        }
+        .playlist li:hover {
+            background: #ddd;
+        }
+   /* Link styling */
+        .open-link {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .open-link:hover {
+            text-decoration: underline;
+        }
+        /* Overlay for pop-up background */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Popup form styling */
+        .popup-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            max-width: 100%;
+        }
+        .popup-form h2 {
+            margin-top: 0;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .popup-form input, .popup-form select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .popup-form button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .popup-form button:hover {
+            background-color: #2980b9;
+        }
+        .popup-form .cancel-btn {
+            background-color: #e74c3c;
+        }
+        .popup-form .cancel-btn:hover {
+            background-color: #c0392b;
+        }

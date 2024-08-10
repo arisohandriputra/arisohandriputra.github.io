@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ari Project | Homepage</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <center>
+        <font size="1"><p><b>Welcome back!</b><br> after almost 5 years of this website being <i><b>inactive</b></i><br> due to many problems on my main server due to repairs and reconstruction of my house.<br>Now the Ari Project website has been active again since <b>July 31, 2024</b>.</p></font>
+        <p>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><a href="#"><img src="header.png" width="470" height="80" align="top"></a></td>
+                </tr>
+            </table>
+        </p>
+    </center>
+
+    <blockquote>
+        <center>
+            <img src="res/product.png"><br>
+            <p>Get a 20% discount for this period of the year.</p>
+            <table>
+                <tr>
+                    <td><img src="res/ArixArchive.png" width="200" align="middle" border="0"></td>
+                     <td><B>Arix Archive</B><BR>
+                    <font size="2"><i>High-level File Compression</i></font><BR>
+                    <hr>
+                     <a href="https://www.paypal.com/ncp/payment/W8EAY7JVQAXNN" target="_blank"><img src="res\buynow.gif" width="100"></a><BR>
+                     (<del style="color: red;">$28,25</del> - <B>$22,60</B> 20% Off)<BR>
+                     <u><i><b>for Indonesian :</b></i></u><br>
+                     (<del style="color: red;">450,000 IDR</del> - <B>360,000 IDR</B> 20% Off)<BR>
+                      <a href="#" class="open-link" onclick="openForm()"><B>✪ Bayar Disini</B></a><br></td>
+                </tr>
+                <tr>
+                    <td><img src="res/uDiscMounter.png" width="200" align="middle" border="0"></td>
+                    <td><B>uDiscMounter</B><BR>
+                    <font size="2"><i>Easy CD/DVD Image Mounter</i></font><BR>
+                    <hr>
+                    <a href="https://www.paypal.com/ncp/payment/EAZJ7PGVBSJK6" target="_blank"><img src="res\buynow.gif" width="100"></a><BR>
+                     (<del style="color: red;">$15,69</del> - <B>$12,55</B> 20% Off)<br>
+                 <u><i><b>for Indonesian :</b></i></u><br>
+                     (<del style="color: red;">250,000 IDR</del> - <B>200,000 IDR</B> 20% Off)<BR>
+                      <a href="#" class="open-link" onclick="openForm()"><B>✪ Bayar Disini</B></a><br></td>
+                </tr>
+            </table>
+            <br><br>
+            <img src="res/about.png"><br>
+            <img src="res/me.png" width="80" align="middle" border="0">
+            <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="50%">
+    <TR>
+        <TD WIDTH="100%">
+        
+            <BLOCKQUOTE>
+            <font size="2"><P>Hello, I'm <b>Ari Sohandri Putra</b> from Lombok, Indonesia. As a <b>Software Developer, Electronic Music Producer, and Graphic Designer</b>, I thrive at the intersection of technology and creativity. I enjoy developing innovative software solutions, producing engaging electronic music, and crafting visuals that resonate with people. My goal is always to create work that is not only functional but also aesthetically pleasing and impactful.</P>
+            <p>I have experience working as a Software Developer on the <a href="https://photodemon.org/contributors/" target="_blank"><b>PhotoDemon</b></a> project and as IT Support at <b>Indomaret Group</b>. These roles have honed my technical skills and deepened my understanding of the industry. Currently, I am focusing on developing independent software projects, where I continue to push the boundaries of creativity and innovation. With a professional yet approachable style, I am committed to delivering high-quality results that exceed expectations.</p></font>
+            </BLOCKQUOTE>
+        </TD>
+    </TR>
+    </TABLE><br>
+    <img src="res/discography.png"><br><br>
+    <div class="player-container">
+        <div class="album-artwork"></div>
+        <audio id="audioPlayer" controls autoplay loop>
+            <source src="path_to_first_audio.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+        <ul class="playlist" id="playlist">
+            <li data-src="res\audio\takemeback.mp3">Take Me Back</li>
+            <li data-src="res\audio\completeagain.mp3">Complete Again</li>
+            <li data-src="res\audio\somebody.mp3">Somebody</li>
+            <li data-src="res\audio\illusions.mp3">Illusions</li>
+            <li ><a href="">More ...</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playlist = document.getElementById('playlist');
+
+        playlist.addEventListener('click', function(event) {
+            const target = event.target;
+            if (target.tagName === 'LI') {
+                const src = target.getAttribute('data-src');
+                audioPlayer.src = src;
+                audioPlayer.play();
+            }
+        });
+    </script>
+
+
+<div class="overlay" id="overlay">
+    <div class="popup-form">
+        <h2>Request Payment</h2>
+        <input type="text" id="fullName" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="E-Mail" required>
+        <input type="tel" id="phone" placeholder="Phone" required>
+        <select id="product">
+            <option value="Arix Archive">Arix Archive</option>
+            <option value="uDiscMounter">uDiscMounter</option>
+        </select>
+        <select id="quantity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button onclick="requestPayment()">Request Payment</button>
+        <button class="cancel-btn" onclick="closeForm()">Cancel</button>
+    </div>
+</div>
+
+<script>
+    function openForm() {
+        document.getElementById("overlay").style.display = "flex";
+    }
+
+    function closeForm() {
+        document.getElementById("overlay").style.display = "none";
+    }
+
+    function requestPayment() {
+        const fullName = document.getElementById("fullName").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const product = document.getElementById("product").value;
+        const quantity = document.getElementById("quantity").value;
+
+        const message = `Payment Request:\n\nFull Name: ${fullName}\nE-Mail: ${email}\nPhone: ${phone}\nProduct: ${product}\nQuantity: ${quantity}`;
+
+        const token = '6581839086:AAElfTP5dTna9f9Qu0tR9f-ubA4rPDSfJd8';
+        const chatId = '6295226491';
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    alert("Payment request sent successfully!");
+                    closeForm();
+                } else {
+                    alert("Failed to send payment request.");
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+
+
+            <br>
+            <img src="res/artshow.png" width="550">
+            <br><br>
+            <a href="#TOP"><b>Back to top</b></a>
+            <br><br>
+            <font size="2"><p>&#169; 2012 - 2024 Ari Project. All Rights Reserved.<br>
+                45 Diponegoro Street, Selong, East Lombok - ID (83612)<br>
+                Phone (+62) 813 535 61716<br>
+                E-Mail <a href="mailto:service.ariproject@hotmail.com">service.ariproject@hotmail.com</a></p></font>
+            <script type="text/javascript" src="https://www.counters-free.net/count/g14v"></script><br>
+ <a href='https://www.versicherungen.at/cyber-versicherung/'>Counter</a> <script type='text/javascript' src='https://www.whomania.com/ctr?id=2ee027afb656cfec5893e05f2bd5bc4929f16f85'></script>
+            <p>
+                <a href="http://validator.w3.org/check?uri=referer">
+                    <img style="border:0;width:88px;height:31px" src="res/valid-xhtml.png" alt="Valid XHTML!">
+                </a>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+                </a>
+                <a href="https://www.w3.org/WAI/">
+                    <img style="border:0;width:88px;height:31px" src="res/w3c.png">
+                </a>
+            </p>
+        </center>
+    </blockquote>
+</body>
+
+</html>
