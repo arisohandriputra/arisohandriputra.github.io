@@ -23,32 +23,7 @@
 
     <blockquote>
         <center>
-            <img src="res/product.png"><br>
-            <p>Get a 20% discount for this period of the year.</p>
-            <table>
-                <tr>
-                    <td><img src="res/ArixArchive.png" width="200" align="middle" border="0"></td>
-                     <td><B>Arix Archive</B><BR>
-                    <font size="2"><i>High-level File Compression</i></font><BR>
-                    <hr>
-                     <a href="https://www.paypal.com/ncp/payment/W8EAY7JVQAXNN" target="_blank"><img src="res\buynow.gif" width="100"></a><BR>
-                     (<del style="color: red;">$28,25</del> - <B>$22,60</B> 20% Off)<BR>
-                     <u><i><b>for Indonesian :</b></i></u><br>
-                     (<del style="color: red;">450,000 IDR</del> - <B>360,000 IDR</B> 20% Off)<BR>
-                      <a href="#" class="open-link" onclick="openForm()"><B>✪ Bayar Disini</B></a><br></td>
-                </tr>
-                <tr>
-                    <td><img src="res/uDiscMounter.png" width="200" align="middle" border="0"></td>
-                    <td><B>uDiscMounter</B><BR>
-                    <font size="2"><i>Easy CD/DVD Image Mounter</i></font><BR>
-                    <hr>
-                    <a href="https://www.paypal.com/ncp/payment/EAZJ7PGVBSJK6" target="_blank"><img src="res\buynow.gif" width="100"></a><BR>
-                     (<del style="color: red;">$15,69</del> - <B>$12,55</B> 20% Off)<br>
-                 <u><i><b>for Indonesian :</b></i></u><br>
-                     (<del style="color: red;">250,000 IDR</del> - <B>200,000 IDR</B> 20% Off)<BR>
-                      <a href="#" class="open-link" onclick="openForm()"><B>✪ Bayar Disini</B></a><br></td>
-                </tr>
-            </table>
+            <img src="sell.png"><br>
             <br><br>
             <img src="res/about.png"><br>
             <img src="res/me.png" width="80" align="middle" border="0">
@@ -63,100 +38,6 @@
         </TD>
     </TR>
     </TABLE><br>
-    <img src="res/discography.png"><br><br>
-    <div class="player-container">
-        <div class="album-artwork"></div>
-        <audio id="audioPlayer" controls autoplay loop>
-            <source src="path_to_first_audio.mp3" type="audio/mpeg">
-            Your browser does not support the audio tag.
-        </audio>
-        <ul class="playlist" id="playlist">
-            <li data-src="res\audio\takemeback.mp3">Take Me Back</li>
-            <li data-src="res\audio\completeagain.mp3">Complete Again</li>
-            <li data-src="res\audio\somebody.mp3">Somebody</li>
-            <li data-src="res\audio\illusions.mp3">Illusions</li>
-            <li ><a href="">More ...</a></li>
-        </ul>
-    </div>
-
-    <script>
-        const audioPlayer = document.getElementById('audioPlayer');
-        const playlist = document.getElementById('playlist');
-
-        playlist.addEventListener('click', function(event) {
-            const target = event.target;
-            if (target.tagName === 'LI') {
-                const src = target.getAttribute('data-src');
-                audioPlayer.src = src;
-                audioPlayer.play();
-            }
-        });
-    </script>
-
-
-<div class="overlay" id="overlay">
-    <div class="popup-form">
-        <h2>Request Payment</h2>
-        <input type="text" id="fullName" placeholder="Full Name" required>
-        <input type="email" id="email" placeholder="E-Mail" required>
-        <input type="tel" id="phone" placeholder="Phone" required>
-        <select id="product">
-            <option value="Arix Archive">Arix Archive</option>
-            <option value="uDiscMounter">uDiscMounter</option>
-        </select>
-        <select id="quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-        <button onclick="requestPayment()">Request Payment</button>
-        <button class="cancel-btn" onclick="closeForm()">Cancel</button>
-    </div>
-</div>
-
-<script>
-    function openForm() {
-        document.getElementById("overlay").style.display = "flex";
-    }
-
-    function closeForm() {
-        document.getElementById("overlay").style.display = "none";
-    }
-
-    function requestPayment() {
-        const fullName = document.getElementById("fullName").value;
-        const email = document.getElementById("email").value;
-        const phone = document.getElementById("phone").value;
-        const product = document.getElementById("product").value;
-        const quantity = document.getElementById("quantity").value;
-
-        const message = `Payment Request:\n\nFull Name: ${fullName}\nE-Mail: ${email}\nPhone: ${phone}\nProduct: ${product}\nQuantity: ${quantity}`;
-
-        const token = '6581839086:AAElfTP5dTna9f9Qu0tR9f-ubA4rPDSfJd8';
-        const chatId = '6295226491';
-        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    alert("Payment request sent successfully!");
-                    closeForm();
-                } else {
-                    alert("Failed to send payment request.");
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    }
-</script>
-
 
             <br>
             <img src="res/artshow.png" width="550">
