@@ -1,0 +1,84 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="style.css" rel="stylesheet" type="text/css">
+<title>Ari Project | How to Connect CelareChat Outside of a Local Network Using Third-Party Tools</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta name="keywords" content="Arix, Archive, uDiscMounter, compression, mounting, Ari-Project, Ari, Project, software, tools, CD mounting, disk image, image files, Windows software, data compression, disk utilities, virtual drive, ISO, BIN, IMG, NRG, Lombok software, file archiving, file mounting, electronic music software, graphic design tools, software development, independent developer, utility software, Surya Computer, file management, tech solutions, digital tools, IT solutions">
+</head>
+<body>
+
+<p align="center"><a href="index.html"><img src="header.png" align="center" width="390" height="60" border="0" alt="Ari Project"></a></p>
+
+<i>Welcome back!
+after almost <b>5 years</b> of this website being inactive
+due to many problems on my main server due to repairs and reconstruction of my house.
+Now the Ari Project website has been active again since <b>July 31, 2024</b>.</i>
+
+<h1>How to Connect CelareChat Outside of a Local Network Using Third-Party Tools</h1>
+
+<p>To expand the reach of <b>CelareChat</b> and allow users outside your local network to connect, you can use third-party tunneling tools such as <b>ngrok</b> or <b>LocalTunnel</b>. These tools let you expose a local server or application (like CelareChat) to the internet without needing complex network configurations like port forwarding.</p>
+
+<h4 style="color: blue;">Using ngrok for CelareChat</h4>
+<P><B>Ngrok</B> is a popular tunneling tool that allows you to expose your local network application to the internet through a secure public URL. Here’s how to use it for <B>CelareChat</B>:</P>
+<h4>Step 1: Download and Install ngrok</h4>
+<li>
+	Go to the ngrok website and download the version compatible with your operating system.
+</li>
+<li>
+	Extract the downloaded file and save it in an easily accessible directory.
+</li>
+<h4>Step 2: Authenticate Your Account</h4>
+<P>After signing up for ngrok, you’ll receive an authentication token. Enter the token to authenticate your session:</P>
+<textarea readonly rows="2" cols="50">ngrok authtoken <your_token_here></textarea>
+<h4>Step 3: Running ngrok</h4>
+<P>To expose CelareChat running on a specific port (e.g., port 3000), run the following command:</P>
+<textarea readonly rows="2" cols="50">ngrok tcp 3000</textarea>
+<P>Once you run the command, ngrok will provide a public URL in the following format:</P>
+<textarea readonly rows="2" cols="50">tcp://0.tcp.ngrok.io:12345</textarea>
+<P>Use this URL to connect to CelareChat from any device on the internet.</P>
+<P><I>Example : </I> <B>IP/Host</B> : <s>tcp://</s>0.tcp.ngrok.io <B>Port</B> : 12345 </P>
+<H4>Step 4: Share the URL</H4>
+<P>Share the ngrok-generated URL with users outside your local network so they can connect to CelareChat.</P>
+
+<h4 style="color: blue;">Using ngrok for CelareChat</h4>
+<P><B>LocalTunnel</B> is a simpler alternative to ngrok that doesn’t require an account or authentication token. It’s also a quick way to expose your local app to the internet.</P>
+<h4>Step 1: Install LocalTunnel</h4>
+<P>You’ll need to have <b>Node.js</b> installed. Once it’s ready, install LocalTunnel by running this command:</P>
+<textarea readonly rows="2" cols="50">npm install -g localtunnel</textarea>
+<h4>Step 2: Running LocalTunnel</h4>
+<P>To expose CelareChat running on port 3000, run the following command:</P>
+<textarea readonly rows="2" cols="50">lt --port 3000</textarea>
+<P><B>LocalTunnel</B> will generate a public URL that you can use to access CelareChat from anywhere.</P>
+<H4>Step 3: Share the URL</H4>
+<P>Just like with ngrok, share the LocalTunnel URL with users who need to access CelareChat outside your local network.</P>
+<h3>Additional Tips</h3>
+
+<li><B>Ensure the Port is Not Blocked by a Firewall:</B> Before using ngrok or LocalTunnel, ensure the port you’re using isn’t being blocked by your firewall.</li>
+
+<h3>When to Use Ngrok or LocalTunnel?</h3>
+<li><B>Quick Testing:</B> If you want to quickly test or demo CelareChat to users outside of your local network, ngrok and LocalTunnel are ideal since they require no complex setup.</li>
+<li><B>Remote Access from Anywhere:</B> These tools are also useful for temporarily accessing apps running on your local machine from remote locations.</li>
+<p>With ngrok and LocalTunnel, you can easily connect CelareChat to the outside world, allowing users to access it from anywhere across the globe.</p>
+<br>
+<H1>Technical Support</H1>
+
+<P>Please report any errors and BUGs in our software. </P> 
+<P>Send your reports to our e-mail: <A href="mailto:arisohandriputra@gmail.com">Send a Report</A></P>
+<div style="display: flex; gap: 10px; align-items: center;">
+    <a href="https://wa.me/6281353561716" target="_blank">
+        <img src="whatsapp.png" alt="WhatsApp Logo" style="width: 32px; height: 32px;">
+    </a>
+    <a href="https://t.me/Areyxx" target="_blank">
+        <img src="telegram.png" alt="Telegram Logo" style="width: 32px; height: 32px;">
+    </a>
+    <a href="https://www.instagram.com/arisohandri_" target="_blank">
+        <img src="instagram.png" alt="Instagram Logo" style="width: 32px; height: 32px;">
+    </a>
+</div>
+
+<hr>
+<p><small>Copyright (C) 2024 Ari Sohandri Putra.</small></p>
+
+</body></html>
