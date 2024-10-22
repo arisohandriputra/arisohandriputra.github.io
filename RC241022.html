@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Recovery - MyPassword Manager</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <style>
+        /* Gaya body dengan nuansa retro */
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #d3d3d3;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px #808080;
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #008080;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #000;
+            box-shadow: inset 2px 2px 0px #808080;
+            font-size: 16px;
+            background-color: #e0e0e0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #008080;
+            border: 2px solid #000;
+            box-shadow: 2px 2px 0px #808080;
+            cursor: pointer;
+            margin-right: 10px;
+            font-family: 'Courier New', monospace;
+        }
+
+        button:hover {
+            background-color: #006666;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            button {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+
+        .output-label {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Gaya footer klasik */
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #008080;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>MyPassword Manager</h2>
+    <p>Password Recovery</p>
+    <!-- Input untuk teks -->
+    <label for="textInput">Enter your 8-digit recovery code:</label>
+    <input type="text" id="textInput" maxlength="8" placeholder="Enter your 8 digit recovery code here..." />
+
+    <!-- Tombol untuk menghasilkan hash -->
+    <button onclick="generateHash()">Get Recovery Code</button>
+
+    <!-- Output hash -->
+    <label class="output-label" for="hashOutput">Recovery code:</label>
+    <input type="text" id="hashOutput" readonly placeholder="Recovery code will appear here..." />
+
+</div>
+
+<footer>
+    © 2024 Ari Sohandri Putra.
+</footer>
+
+<script>
+    // Fungsi untuk membuat hash dari teks
+    function generateHash() {
+        // Ambil teks dari input
+        var inputText = document.getElementById('textInput').value;
+        if (inputText === "") {
+            alert("TextBox1 tidak boleh kosong!");
+            return;
+        }
+
+        // Buat hash MD5 dari teks dan ubah ke huruf besar
+        var hash = CryptoJS.MD5(inputText).toString(CryptoJS.enc.Hex).toUpperCase();
+
+        // Tampilkan hash di TextBox2
+        document.getElementById('hashOutput').value = hash;
+    }
+
+    // Fungsi untuk memverifikasi hash
+    function verifyHash() {
+        var inputText = document.getElementById('textInput').value;
+        var hashToCompare = document.getElementById('hashOutput').value;
+
+        // Buat hash baru dari input teks dan ubah ke huruf besar
+        var newHash = CryptoJS.MD5(inputText).toString(CryptoJS.enc.Hex).toUpperCase();
+
+        // Bandingkan hash baru dengan hash yang ada di TextBox2
+        if (newHash === hashToCompare) {
+            alert("Teks valid!");
+        } else {
+            alert("Teks tidak valid!");
+        }
+    }
+</script>
+
+</body>
+</html>
