@@ -65,27 +65,98 @@
         <img class="snapshot" src="snapshot.PNG" alt="Snapshot uBattery running on Windows 10 23h2">
 
         <h2>Understanding the Display</h2>
-        <ul>
-            <li><strong>Graph:</strong> The graph displays the movement of the battery indicator up or down on the x and y axis. It also shows the current time to determine the time of battery decrease and increase.</li>
-            <li><strong>Charge Rate:</strong> ChargeRate indicates the rate at which the battery receives electrical energy when charged. Usually measured in units of mW (milliwatt).</li>
-            <li><strong>Discharge Rate:</strong> DischargeRate indicates the speed at which the battery releases energy for use by the device.</li>
-            <li><strong>Voltage:</strong> Voltage is the nominal or standard voltage that the battery has been designed for by the manufacturer. This voltage reflects the value that the battery should produce when working under optimal conditions.</li>
-            <li><strong>Chemistry:</strong> Chemistry in battery data refers to the type of chemistry or composition of the materials used in the battery. Each type of battery chemistry has unique characteristics that affect the battery's capacity, voltage, lifespan, and performance.</li>
-            <li><strong>Temperature:</strong> Shows the temperature value of your battery in Celsius.</li>
-            <li><strong>Capacity:</strong> Capacity is the maximum capacity designed for the battery by the manufacturer. This value indicates how much power (energy) the battery can store at its first full state after production.</li>
-            <li><strong>Estimated Usage:</strong> Provides an estimate of the time in seconds that the device can last using the remaining battery power. This value is calculated based on the remaining battery capacity, the energy usage level of the device, and the state of the battery (for example, whether the battery is in the charging process or in the discharge state).</li>
-            <li><strong>Serial Number:</strong> Serial Number is a unique code assigned by the manufacturer to each battery unit. It is the identifier used to distinguish one battery from another. Each battery produced by a particular manufacturer has a different serial number.</li>
-            <li><strong>UniqueID:</strong> UniqueID is a more specific unique code used to identify a specific device or component, including batteries, in a system.</li>
-            <li><strong>Power:</strong> Power indicates whether the battery power source is connected to A/C Power or not.</li>
-            <li><strong>Condition:</strong> Displays battery condition information whether normal or otherwise.</li>
-            <li><strong>Alert:</strong> “L” means early warning or Low, and “W” means warning for critical battery conditions.</li>
-            <li><strong>Remaining:</strong> Remaining time is the time that shows the movement of the battery indicator since the monitoring process was first started.</li>
-            <li><strong>Full Charge Capacity:</strong> FullChargeCapacity refers to the full capacity of the battery when fully charged, usually measured in milliampere-hours (mAh) or watt-hours (Wh). This value indicates how much energy the battery can store when fully charged.</li>
-            <li><strong>Stop:</strong> Stop Monitoring.</li>
-            <li><strong>Save Report:</strong> Save Report Graph as Binary file.</li>
-            <li><strong>Load Report:</strong> Load and view Binary report file.</li>
-        </ul>
+        
+            <div class="list-item">
+                <b>B. [Charge Rate]</b> - ChargeRate indicates the rate at which the battery receives electrical energy when charged. Usually measured in units of mW (milliwatt).<br>
+                <div class="sub-list">
+                    <p><b>Ex.</b> Positive Value: Indicates that energy is being input into the battery (battery is charging).</p>
+                    <p>Zero Value: Indicates that no charging is occurring.</p>
+                    <p>Negative Value (rare): May indicate an error or reverse charging (abnormal).</p>
+                </div>
+                <p><b>Factors Affecting ChargeRate:</b></p>
+                <div class="sub-list">
+                    <ul>
+                        <li>Charger Capacity: The greater the charger output power (e.g., 18W vs. 5W), the higher the ChargeRate.</li>
+                        <li>Battery Condition: Old or damaged batteries may charge more slowly.</li>
+                        <li>Temperature: Charging may slow down if the battery is too hot.</li>
+                        <li>Charging Rate: ChargeRate is usually higher when battery capacity is low, and slows down when approaching 100% to protect the battery.</li>
+                        <li>Quick Charge Technology: Enables higher ChargeRate by using specific protocols (e.g., QC, PD, VOOC).</li>
+                    </ul>
+                </div>
+                <p><b>Example Values:</b> 500 mW: The battery is being charged with 500 milliwatts of power.</p>
+            </div>
 
+            <div class="list-item">
+                <b>C. [Discharge Rate]</b> - DischargeRate indicates the speed at which the battery releases energy for use by the device. This is usually measured in mW (milliwatt).<br>
+                <div class="sub-list">
+                    <p><b>Ex.</b> Positive Value: Indicates that energy is being removed from the battery (normal during use).</p>
+                    <p>Zero Value: Indicates that no energy is being released (for example, the device is connected to external power).</p>
+                    <p>Negative Value (rare): Indicates an error in the calculation.</p>
+                </div>
+                <p><b>Factors Affecting DischargeRate:</b></p>
+                <div class="sub-list">
+                    <ul>
+                        <li>Device Load: Power usage increases with device workload (e.g., gaming vs. idle).</li>
+                        <li>Active Components: A bright screen, hard-working processor, or intensive network usage may increase the DischargeRate.</li>
+                        <li>Battery Condition: Older batteries may exhibit a higher DischargeRate due to decreased efficiency.</li>
+                        <li>Energy Saving Mode: Reduces DischargeRate by lowering device performance.</li>
+                        <li>Ambient Temperature: Extreme temperatures (too hot/cold) may affect battery efficiency.</li>
+                    </ul>
+                </div>
+                <p><b>Example Values:</b> 1000 mW: The battery outputs 1000 milliwatts of power.</p>
+            </div>
+
+            <div class="list-item">
+                <b>D. [Voltage]</b> - Voltage is the nominal or standard voltage that the battery has been designed for by the manufacturer. This voltage reflects the value that the battery should produce when working under optimal conditions.
+            </div>
+
+            <div class="list-item">
+                <b>E. [Chemistry]</b> - Chemistry in battery data refers to the type of chemistry or composition of the materials used in the battery. Each type of battery chemistry has unique characteristics that affect the battery's capacity, voltage, lifespan, and performance.
+            </div>
+
+            <div class="list-item">
+                <b>F. [Temperature]</b> - Shows the temperature value of your battery in Celsius.
+            </div>
+
+            <div class="list-item">
+                <b>G. [Capacity]</b> - Capacity is the maximum capacity designed for the battery by the manufacturer. This value indicates how much power (energy) the battery can store at its first full state after production.
+            </div>
+
+            <div class="list-item">
+                <b>H. [Estimated Usage]</b> - Provides an estimate of the time in seconds that the device can last using the remaining battery power. This value is calculated based on the remaining battery capacity, the energy usage level of the device, and the state of the battery (for example, whether the battery is in the charging process or in the discharge state).
+            </div>
+
+            <div class="list-item">
+                <b>I. [Manufacturer]</b> - Manufacturer refers to the name or identity of the factory or company that produced the battery. Usually, this information is obtained from the hardware data provided by the operating system or the device itself.
+            </div>
+
+            <div class="list-item">
+                <b>J. [Serial Number]</b> - Serial Number is a unique code assigned by the manufacturer to each battery unit. It is the identifier used to distinguish one battery from another. Each battery produced by a particular manufacturer has a different serial number.
+            </div>
+
+            <div class="list-item">
+                <b>K. [UniqueID]</b> - UniqueID is a more specific unique code used to identify a specific device or component, including batteries, in a system.
+            </div>
+
+            <div class="list-item">
+                <b>L. [Power]</b> - Power indicates whether the battery power source is connected to A/C Power or not.
+            </div>
+
+            <div class="list-item">
+                <b>M. [Condition]</b> - Displays battery condition information whether normal or otherwise.
+            </div>
+
+            <div class="list-item">
+                <b>N. [Alert]</b> - “L” means early warning or Low, and “W” means warning for critical battery conditions.
+            </div>
+
+            <div class="list-item">
+                <b>N. [Remaining]</b> - Remaining time is the time that shows the movement of the battery indicator since the monitoring process was first started.
+            </div>
+
+            <div class="list-item">
+                <b>O. [Full Charge Capacity]</b> - FullChargeCapacity refers to the full capacity of the battery when fully charged, which is usually measured in milliampere-hours (mAh) or watt-hours (Wh). This value indicates how much energy the battery can store when fully charged. In other words, it is the amount of energy that the battery can store at its peak capacity.
+            </div>
         <h2>Additional Information</h2>
         <p>The uBattery tool not only offers real-time monitoring but also allows users to export data for further analysis. The reports generated can be saved in binary format, making it easy to keep records or share data with other tools. The battery condition alert system provides timely warnings, ensuring that users can take action before the battery reaches a critical state.</p>
         <p>By using uBattery, users can make informed decisions about battery care, optimize charging cycles, and extend the lifespan of their device's battery. This tool is particularly useful for laptops, mobile devices, and other portable electronics that rely on rechargeable batteries.</p>
