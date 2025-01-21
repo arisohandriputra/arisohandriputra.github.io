@@ -1,170 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uBattery Documentation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.5;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            font-size: 14px;
-            padding: 8px;
-        }
-        .snapshot {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            margin-top: 20px;
-        }
-        footer {
-            text-align: center;
-            font-size: 14px;
-            margin-top: 40px;
-            color: #888;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-        }
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-        }
-    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>uBattery Help Documentation</title>
+<style type="text/css">
+<!--
+.style4 {font-size: small}
+body {
+	background-color: #666666;
+}
+.style5 {font-size: large; font-weight: bold; font-style: italic; }
+-->
+table {
+    width: 100%; /* Tabel menggunakan 100% lebar layar */
+    border-collapse: collapse;
+}
+
+table img {
+    max-width: 100%;
+    height: auto; /* Gambar tetap proporsional */
+}
+
+/* Pastikan teks tidak terlalu besar di perangkat kecil */
+body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.style4 {
+    font-size: 14px; /* Ukuran font yang lebih kecil */
+}
+
+.style5 {
+    font-size: 20px; /* Ukuran heading */
+}
+
+/* Styling untuk layar kecil */
+@media (max-width: 768px) {
+    table {
+        width: 95%; /* Lebar tabel lebih kecil pada layar kecil */
+    }
+    
+    .style5 {
+        font-size: 18px;
+    }
+    
+    .style4 {
+        font-size: 12px;
+    }
+}
+
+/* Styling untuk layar sangat kecil */
+@media (max-width: 480px) {
+    .style5 {
+        font-size: 16px;
+    }
+    
+    .style4 {
+        font-size: 10px;
+    }
+    
+    table img {
+        width: 100%; /* Gambar memenuhi lebar kontainer */
+        height: auto;
+    }
+}
+</style>
 </head>
+
 <body>
-
-    <div class="container">
-        <h1>uBattery Documentation</h1>
-        <p><strong>Released:</strong> 08/25/2015</p>
-        <p><strong>Modified:</strong> 01/20/2025</p>
-        <p><strong>Author:</strong> Ari Sohandri Putra</p>
-        <p><strong>&copy; 2015 Ari Software Project.</strong></p>
-
-        <h2>Introduction</h2>
-        <p>uBattery is a real-time battery monitoring tool designed to provide key insights into your device’s battery performance. It features a dynamic graph that displays battery levels from 0% to 100% and offers comprehensive information about your battery’s capacity, charge and discharge rates, full charge capacity, usage time, and overall status.</p>
-
-        <img class="snapshot" src="snapshot.PNG" alt="Snapshot uBattery running on Windows 10 23h2">
-
-        <h2>Understanding the Display</h2>
-        
-            <div class="list-item">
-                <b>B. [Charge Rate]</b> - ChargeRate indicates the rate at which the battery receives electrical energy when charged. Usually measured in units of mW (milliwatt).<br>
-                <div class="sub-list">
-                    <p><b>Ex.</b> Positive Value: Indicates that energy is being input into the battery (battery is charging).</p>
-                    <p>Zero Value: Indicates that no charging is occurring.</p>
-                    <p>Negative Value (rare): May indicate an error or reverse charging (abnormal).</p>
-                </div>
-                <p><b>Factors Affecting ChargeRate:</b></p>
-                <div class="sub-list">
-                    <ul>
-                        <li>Charger Capacity: The greater the charger output power (e.g., 18W vs. 5W), the higher the ChargeRate.</li>
-                        <li>Battery Condition: Old or damaged batteries may charge more slowly.</li>
-                        <li>Temperature: Charging may slow down if the battery is too hot.</li>
-                        <li>Charging Rate: ChargeRate is usually higher when battery capacity is low, and slows down when approaching 100% to protect the battery.</li>
-                        <li>Quick Charge Technology: Enables higher ChargeRate by using specific protocols (e.g., QC, PD, VOOC).</li>
-                    </ul>
-                </div>
-                <p><b>Example Values:</b> 500 mW: The battery is being charged with 500 milliwatts of power.</p>
-            </div>
-
-            <div class="list-item">
-                <b>C. [Discharge Rate]</b> - DischargeRate indicates the speed at which the battery releases energy for use by the device. This is usually measured in mW (milliwatt).<br>
-                <div class="sub-list">
-                    <p><b>Ex.</b> Positive Value: Indicates that energy is being removed from the battery (normal during use).</p>
-                    <p>Zero Value: Indicates that no energy is being released (for example, the device is connected to external power).</p>
-                    <p>Negative Value (rare): Indicates an error in the calculation.</p>
-                </div>
-                <p><b>Factors Affecting DischargeRate:</b></p>
-                <div class="sub-list">
-                    <ul>
-                        <li>Device Load: Power usage increases with device workload (e.g., gaming vs. idle).</li>
-                        <li>Active Components: A bright screen, hard-working processor, or intensive network usage may increase the DischargeRate.</li>
-                        <li>Battery Condition: Older batteries may exhibit a higher DischargeRate due to decreased efficiency.</li>
-                        <li>Energy Saving Mode: Reduces DischargeRate by lowering device performance.</li>
-                        <li>Ambient Temperature: Extreme temperatures (too hot/cold) may affect battery efficiency.</li>
-                    </ul>
-                </div>
-                <p><b>Example Values:</b> 1000 mW: The battery outputs 1000 milliwatts of power.</p>
-            </div>
-
-            <div class="list-item">
-                <b>D. [Voltage]</b> - Voltage is the nominal or standard voltage that the battery has been designed for by the manufacturer. This voltage reflects the value that the battery should produce when working under optimal conditions.
-            </div>
-
-            <div class="list-item">
-                <b>E. [Chemistry]</b> - Chemistry in battery data refers to the type of chemistry or composition of the materials used in the battery. Each type of battery chemistry has unique characteristics that affect the battery's capacity, voltage, lifespan, and performance.
-            </div>
-
-            <div class="list-item">
-                <b>F. [Temperature]</b> - Shows the temperature value of your battery in Celsius.
-            </div>
-
-            <div class="list-item">
-                <b>G. [Capacity]</b> - Capacity is the maximum capacity designed for the battery by the manufacturer. This value indicates how much power (energy) the battery can store at its first full state after production.
-            </div>
-
-            <div class="list-item">
-                <b>H. [Estimated Usage]</b> - Provides an estimate of the time in seconds that the device can last using the remaining battery power. This value is calculated based on the remaining battery capacity, the energy usage level of the device, and the state of the battery (for example, whether the battery is in the charging process or in the discharge state).
-            </div>
-
-            <div class="list-item">
-                <b>I. [Manufacturer]</b> - Manufacturer refers to the name or identity of the factory or company that produced the battery. Usually, this information is obtained from the hardware data provided by the operating system or the device itself.
-            </div>
-
-            <div class="list-item">
-                <b>J. [Serial Number]</b> - Serial Number is a unique code assigned by the manufacturer to each battery unit. It is the identifier used to distinguish one battery from another. Each battery produced by a particular manufacturer has a different serial number.
-            </div>
-
-            <div class="list-item">
-                <b>K. [UniqueID]</b> - UniqueID is a more specific unique code used to identify a specific device or component, including batteries, in a system.
-            </div>
-
-            <div class="list-item">
-                <b>L. [Power]</b> - Power indicates whether the battery power source is connected to A/C Power or not.
-            </div>
-
-            <div class="list-item">
-                <b>M. [Condition]</b> - Displays battery condition information whether normal or otherwise.
-            </div>
-
-            <div class="list-item">
-                <b>N. [Alert]</b> - “L” means early warning or Low, and “W” means warning for critical battery conditions.
-            </div>
-
-            <div class="list-item">
-                <b>N. [Remaining]</b> - Remaining time is the time that shows the movement of the battery indicator since the monitoring process was first started.
-            </div>
-
-            <div class="list-item">
-                <b>O. [Full Charge Capacity]</b> - FullChargeCapacity refers to the full capacity of the battery when fully charged, which is usually measured in milliampere-hours (mAh) or watt-hours (Wh). This value indicates how much energy the battery can store when fully charged. In other words, it is the amount of energy that the battery can store at its peak capacity.
-            </div>
-        <h2>Additional Information</h2>
-        <p>The uBattery tool not only offers real-time monitoring but also allows users to export data for further analysis. The reports generated can be saved in binary format, making it easy to keep records or share data with other tools. The battery condition alert system provides timely warnings, ensuring that users can take action before the battery reaches a critical state.</p>
-        <p>By using uBattery, users can make informed decisions about battery care, optimize charging cycles, and extend the lifespan of their device's battery. This tool is particularly useful for laptops, mobile devices, and other portable electronics that rely on rechargeable batteries.</p>
-
-        <footer>
-            <p>© 2015 Ari Software Project.</p>
-        </footer>
-    </div>
-
+<table width="50%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><p><span class="style5">Introduction</span></p>
+      <p><img src="screenshot.PNG" width="873" height="588" /></p>
+      <p><span class="style4">(Battery Screenshot) </span></p></td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle" bgcolor="#FFFFFF"><p class="style4"><strong>uBattery</strong> is a real-time battery monitoring tool designed to provide key insights into your device&rsquo;s battery performance. It features a dynamic graph that displays battery levels from 0% to 100% and offers comprehensive information about your battery&rsquo;s capacity, charge and discharge rates, full charge capacity, usage time, and overall status.</p>
+    <p class="style4">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td height="60" align="center" valign="middle" bgcolor="#FFFFFF"><span class="style5">Understanding the Display</span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF"><p>&nbsp;</p>
+      <table width="96%" border="1" align="center" cellpadding="0" cellspacing="1" bordercolor="#000000">
+        <tr>
+          <th width="21%" align="left" bgcolor="#CCCCCC" scope="row"><span class="style4">Charge Rate </span></th>
+          <td width="79%" bgcolor="#CCCCCC"><span class="style4">ChargeRate indicates the rate at which the battery receives electrical energy when charged. Usually measured in units of mW (milliwatt).</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#FFFFFF" scope="row"><span class="style4">Discharge Rate </span></th>
+          <td bgcolor="#FFFFFF"><span class="style4"> DischargeRate indicates the speed at which the battery releases energy for use by the device. This is usually measured in mW (milliwatt).</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#CCCCCC" scope="row"><span class="style4">Volatage </span></th>
+          <td bgcolor="#CCCCCC"><span class="style4"> Voltage is the nominal or standard voltage that the battery has been designed for by the manufacturer. This voltage reflects the value that the battery should produce when working under optimal conditions.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#FFFFFF" scope="row"><span class="style4">Chemistry </span></th>
+          <td bgcolor="#FFFFFF"><span class="style4"> Chemistry in battery data refers to the type of chemistry or composition of the materials used in the battery. Each type of battery chemistry has unique characteristics that affect the battery's capacity, voltage, lifespan, and performance.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#CCCCCC" scope="row"><span class="style4">Temperature </span></th>
+          <td bgcolor="#CCCCCC"><span class="style4"> Shows the temperature value of your battery in Celsius.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#FFFFFF" scope="row"><span class="style4">Capacity </span></th>
+          <td bgcolor="#FFFFFF"><span class="style4"> Capacity is the maximum capacity designed for the battery by the manufacturer. This value indicates how much power (energy) the battery can store at its first full state after production.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#CCCCCC" scope="row"><span class="style4">Estimated Usage </span></th>
+          <td bgcolor="#CCCCCC"><span class="style4"> Provides an estimate of the time in seconds that the device can last using the remaining battery power. This value is calculated based on the remaining battery capacity, the energy usage level of the device, and the state of the battery (for example, whether the battery is in the charging process or in the discharge state).</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#FFFFFF" scope="row"><span class="style4">Manufacturer </span></th>
+          <td bgcolor="#FFFFFF"><span class="style4"> Manufacturer refers to the name or identity of the factory or company that produced the battery. Usually, this information is obtained from the hardware data provided by the operating system or the device itself.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#CCCCCC" scope="row"><span class="style4">Serial Number </span></th>
+          <td bgcolor="#CCCCCC"><span class="style4"> Serial Number is a unique code assigned by the manufacturer to each battery unit. It is the identifier used to distinguish one battery from another. Each battery produced by a particular manufacturer has a different serial number.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#FFFFFF" scope="row"><span class="style4">UniqueID </span></th>
+          <td bgcolor="#FFFFFF"><span class="style4"> UniqueID is a more specific unique code used to identify a specific device or component, including batteries, in a system.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#CCCCCC" scope="row"><span class="style4">Power</span></th>
+          <td bgcolor="#CCCCCC"><span class="style4"> Power indicates whether the battery power source is connected to A/C Power or not.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#FFFFFF" scope="row"><span class="style4">Condition</span></th>
+          <td bgcolor="#FFFFFF"><span class="style4"> Displays battery condition information whether normal or otherwise.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#CCCCCC" scope="row"><span class="style4">Alert</span></th>
+          <td bgcolor="#CCCCCC"><span class="style4"> &ldquo;L&rdquo; means early warning or Low, and &ldquo;W&rdquo; means warning for critical battery conditions.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#FFFFFF" scope="row"><span class="style4">Remaining</span></th>
+          <td bgcolor="#FFFFFF"><span class="style4"> Remaining time is the time that shows the movement of the battery indicator since the monitoring process was first started.</span></td>
+        </tr>
+        <tr>
+          <th align="left" bgcolor="#CCCCCC" scope="row"><span class="style4">Full Charge Capacity</span></th>
+          <td bgcolor="#CCCCCC"><span class="style4"> FullChargeCapacity refers to the full capacity of the battery when fully charged, which is usually measured in milliampere-hours (mAh) or watt-hours (Wh). This value indicates how much energy the battery can store when fully charged. In other words, it is the amount of energy that the battery can store at its peak capacity.</span></td>
+        </tr>
+      </table>      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><p><span class="style5">Additional Information</span></p></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><p class="style4">The<strong> uBattery</strong> tool not only offers real-time monitoring but also allows users to export data for further analysis. The reports generated can be saved in binary format, making it easy to keep records or share data with other tools. The battery condition alert system provides timely warnings, ensuring that users can take action before the battery reaches a critical state.</p></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><p class="style5">&nbsp;</p>    </td>
+  </tr>
+</table>
+s
 </body>
 </html>
