@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://ariproject.com/</title>
+  <link>https://ariproject.com/</link>
+
+<item>
+     <link>https://ariproject.com/</link>
+     <title>Ari Software Project</title>
+     <description>Ari Software Project</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ariproject.com/index.html</link>
+     <title>Ari Software Project</title>
+     <description>Ari Software Project</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ariproject.com/products.html</link>
+     <title>Products - Ari Software Project</title>
+     <description>Products - Ari Software Project</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ariproject.com/solutions.html</link>
+     <title>Solutions - Ari Software Project</title>
+     <description>Solutions - Ari Software Project</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ariproject.com/contact.html</link>
+     <title>Contact us - Ari Software Project</title>
+     <description>Contact us - Ari Software Project</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ariproject.com/privacy-policy.html</link>
+     <title>Privacy Policy- Ari Software Project</title>
+     <description>Privacy Policy- Ari Software Project</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ariproject.com/license-terms.html</link>
+     <title>Privacy Policy- Ari Software Project</title>
+     <description>Privacy Policy- Ari Software Project</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  
