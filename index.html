@@ -128,29 +128,6 @@
                 document.advert.text.value = msg.substring(1) + msg.substring(0, 1);
             }
         }
-          (function() {
-            const audio = document.getElementById('bgMusic');
-            
-            // 1. Mulai dengan mode mute
-            audio.muted = true;
-            audio.play().then(() => {
-                // 2. Setelah mulai diputar, unmute secara bertahap
-                const fadeAudio = setInterval(() => {
-                    if (audio.muted && audio.volume < 1) {
-                        audio.muted = false;
-                        audio.volume = Math.min(audio.volume + 0.05, 1);
-                    } else {
-                        clearInterval(fadeAudio);
-                    }
-                }, 100);
-            }).catch(e => {
-                // 3. Fallback untuk browser yang sangat ketat
-                console.log("Menggunakan fallback...");
-                audio.muted = false;
-                audio.volume = 0.3;
-                setTimeout(() => audio.play(), 1000);
-            });
-        })();
     </script>
 </head>
 <body onLoad="ScrollBanner()" link="DARKBLUE" vlink="DARKGREEN">
