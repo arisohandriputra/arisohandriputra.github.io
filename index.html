@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ari Project</title>
+<meta name="description" content="Ari Project is an independent software initiative by Ari Sohandri Putra focused on developing lightweight, powerful utility applications for Windows.">
+  <meta name="keywords" content="Ari Project, Ari Sohandri Putra, software, Windows utilities, tools, CD/DVD mounter, system monitor, QR code manager, uDiscMounter, HardMon, MyQR Manager">
+  <meta name="author" content="Ari Sohandri Putra">
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary: #c70000; /* Merah utama */
+        --primary-dark: #a00000; /* Merah gelap untuk hover */
+        --secondary: #ffffff; /* Putih background */
+        --text-dark: #1a1a1a;
+        --text-light: #666;
+        --card-bg: rgba(255, 255, 255, 0.9);
+    }
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: var(--secondary);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+    /* HEADER */
+    header {
+        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.85);
+        padding: 12px 0;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        transition: background 0.3s ease;
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+    }
+    nav .logo img {
+        height: 36px;
+    }
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 24px;
+    }
+    nav a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        font-size: 15px;
+        position: relative;
+    }
+    nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+        width: 100%;
+    }
+    /* HERO */
+    .hero {
+        text-align: center;
+        padding: 90px 20px 60px;
+        animation: fadeIn 1s ease forwards;
+    }
+    .hero h1 {
+        font-size: clamp(28px, 5vw, 46px);
+        margin-bottom: 12px;
+        font-weight: 600;
+    }
+    .hero p {
+        color: var(--text-light);
+        font-size: 18px;
+        max-width: 640px;
+        margin: auto;
+    }
+    .btn {
+        display: inline-block;
+        margin-top: 24px;
+        padding: 12px 28px;
+        background: var(--primary);
+        color: white;
+        border-radius: 8px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+    }
+    /* CARDS */
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+    }
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin: 60px 0;
+    }
+    .card {
+        background: var(--card-bg);
+        backdrop-filter: blur(8px);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        border-top: 4px solid var(--primary);
+    }
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    }
+    .card h3 {
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 20px;
+        color: var(--primary-dark);
+    }
+    .card p {
+        color: var(--text-light);
+        font-size: 15px;
+    }
+    /* FOOTER */
+    footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: #fff;
+        background: var(--primary);
+        margin-top: 40px;
+    }
+    footer a {
+        color: #fff;
+        text-decoration: none;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
+    /* ANIMATION */
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo"><img src="ariproject_small.gif" alt="Ari Project"></div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="software.html">Software</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Innovative Software for Modern Needs</h1>
+    <p>Ari Project is an independent software development initiative dedicated to creating a wide range of utility applications for the Windows operating system. With a strong focus on performance, simplicity, and compatibility, Ari Project delivers lightweight yet powerful tools designed to enhance productivity, streamline workflows, and optimize everyday computing experiences across Windows platforms.</p>
+    <a href="software.html" class="btn">Explore Our Software</a>
+</section>
+
+<div class="container">
+   <section class="cards">
+        <div class="card">
+    <h3>HardMon</h3>
+    <p>Monitor your CPU, GPU, RAM, and storage in real-time with a clear, user-friendly interface.</p>
+    <a href="software/hardmon.html" class="btn">More</a>
+</div>
+        <div class="card">
+    <h3>uDiscMounter</h3>
+    <p>Mount and manage CD/DVD image files with ease. Supports ISO, BIN, IMG, and more.</p>
+    <a href="software/udiscmounter.html" class="btn">More</a>
+</div>
+      <div class="card">
+    <h3>MyQR Manager</h3>
+    <p>Create and scan QR codes with flexible data support in a clean and efficient layout.</p>
+    <a href="software/myqrmanager.html" class="btn">More</a>
+</div>
+    </section>
+</div>
+
+<footer>
+    © 2011–2025 Ari Sohandri Putra – Ari Project. All Rights Reserved.
+</footer>
+
+</body>
+</html>
