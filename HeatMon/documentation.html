@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HeatMon Documentation</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background-color: #808080;
+      font-family: Verdana, Arial, sans-serif;
+      font-size: 12px;
+      color: black;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 820px;
+      margin: 20px auto;
+      background: white;
+      border: 3px groove #404040;
+      padding: 0;
+    }
+    .header {
+      background: #000080;
+      color: white;
+      padding: 6px;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    .header img {
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+      border: 2px solid white;
+      background: #C0C0C0;
+    }
+    .content {
+      padding: 12px;
+    }
+    .section-title {
+      background: #000080;
+      color: white;
+      padding: 4px;
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    pre {
+      font-family: "Courier New", monospace;
+      background: #F8F8F8;
+      padding: 8px;
+      border: 1px solid #808080;
+      overflow-x: auto;
+    }
+    a {
+      color: blue;
+    }
+    .nav {
+      background: #C0C0C0;
+      padding: 4px;
+      text-align: center;
+      border-bottom: 2px groove #808080;
+    }
+    .footer {
+      text-align: center;
+      font-size: 11px;
+      margin-top: 20px;
+      border-top: 2px groove #808080;
+      padding: 6px;
+      background: #E0E0E0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="logo.png" alt="HeatMon Logo">
+      HeatMon Documentation
+    </div>
+
+    <div class="nav">
+      <a href="index.html">Back Home</a> | 
+    </div>
+
+    <div class="content">
+      <p><b>HeatMon</b> is a lightweight CPU monitoring tool.  
+      This documentation describes its menus, options, and usage instructions.</p>
+
+      <div class="section-title">Main Window</div>
+<pre>
+- Displays CPU name and number of cores
+- Shows temperature per core (°C or °F)
+- Shows voltage per core (mV or V)
+- Real-time chart with legends
+- Fan speed indicator (RPM) if detected
+</pre>
+
+      <div class="section-title">Menu and Options</div>
+<pre>
+[ File Menu ]
+  * Save Report (.txt)  - Export CPU stats
+  * Save Graph (.png)   - Save chart image
+
+[ View Menu ]
+  * Graph Themes        - Choose one of 12 themes
+  * Show Unlisted Core  - Display inactive cores
+  * Stay on Top         - Keep HeatMon visible
+
+[ Help Menu ]
+  * Help Content (F1)
+  * About - Program info
+</pre>
+
+      <div class="section-title">Controls & Settings</div>
+<pre>
+[ Temperature Units ]
+- °C (default) or °F
+
+[ Voltage Units ]
+- mV (default) or V
+
+[ Chart Themes ]
+- Teal Default
+- Slate Gray
+- Dark Blue
+- Midnight Purple
+- Emerald Green
+- Fire Orange
+- Ocean Blue
+- Steel Gray
+- Sunset Pink
+- Gold Brown
+- Cyan Teal
+- Silver
+</pre>
+
+      <div class="section-title">Data Export</div>
+<pre>
+- Save Report : File → Save Report or Toolbar button
+- Save Graph  : File → Save Graph or Toolbar button
+</pre>
+
+      <div class="section-title">Commercial Use</div>
+      <p>
+        To register HeatMon for commercial use:<br>
+        Go to <b>Help → About → Enter Serial Key</b>.<br><br>
+        Purchase keys via email:<br>
+        <b>users.ariproject(at)gmail(dot)com</b>
+      </p>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 Ari Project - Documentation Page.
+    </div>
+  </div>
+</body>
+</html>
