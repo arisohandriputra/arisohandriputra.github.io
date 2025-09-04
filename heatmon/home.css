@@ -1,0 +1,7 @@
+#menuBar li.Home a
+{
+	color: #ffffff;
+	text-decoration: none;
+	background: #000000 url(main.png) center center repeat-x;
+	background-position: 0px -30px;
+}
