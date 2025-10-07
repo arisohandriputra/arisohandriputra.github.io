@@ -1,1 +1,2 @@
 You are using the latest version!
+https://hardmon.github.io/bin/release/HardMon_x86_64_Rinjani.zip
