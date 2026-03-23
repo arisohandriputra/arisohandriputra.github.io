@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabungan Offline</title>
+<style>
+*{box-sizing:border-box}
+body{
+  font-family:Segoe UI,Arial;
+  margin:0;
+  background:linear-gradient(135deg,#74ebd5,#9face6);
+  min-height:100vh;
+}
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:15px;
+}
+.card{
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.2);
+  border:1px solid rgba(255,255,255,0.3);
+}
+h2{
+  text-align:center;
+  margin-bottom:10px;
+  color:#fff;
+}
+label{color:#fff;font-size:14px}
+input,button{
+  width:100%;
+  padding:12px;
+  margin:6px 0;
+  border-radius:10px;
+  border:none;
+  font-size:16px;
+}
+input{
+  background:rgba(255,255,255,0.7);
+}
+button{
+  background:linear-gradient(135deg,#4facfe,#00f2fe);
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:active{transform:scale(0.98)}
+.row{display:flex;gap:10px}
+.row button{flex:1}
+
+table{
+  width:100%;
+  margin-top:10px;
+  border-collapse:collapse;
+  font-size:14px;
+  overflow:hidden;
+  border-radius:10px;
+}
+th,td{
+  padding:8px;
+  text-align:center;
+}
+th{
+  background:rgba(255,255,255,0.3);
+  color:#fff;
+}
+td{
+  background:rgba(255,255,255,0.6);
+}
+
+.total{
+  font-weight:bold;
+  text-align:center;
+  font-size:20px;
+  color:#fff;
+  margin-bottom:10px;
+}
+
+.btn-hapus{
+  background:linear-gradient(135deg,#ff6a6a,#ff0000);
+  color:#fff;
+  border:none;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+@media(max-width:480px){
+  h2{font-size:18px}
+  input,button{font-size:14px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="card">
+<h2>Tabungan Harian</h2>
+<div class="total">Total: Rp <span id="total">0</span></div>
+
+<label>Tanggal:</label>
+<input type="date" id="tanggal">
+
+<label>Jumlah:</label>
+<input type="number" id="jumlah" placeholder="Masukkan nominal">
+
+<div class="row">
+<button onclick="simpan()">Simpan</button>
+<button onclick="resetData()">Reset</button>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Tanggal</th>
+<th>Jumlah</th>
+<th>Aksi</th>
+</tr>
+</thead>
+<tbody id="data"></tbody>
+</table>
+
+</div>
+</div>
+
+<script>
+let data = JSON.parse(localStorage.getItem('tabungan')) || [];
+
+function formatRupiah(angka){
+  return angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+function isMinggu(dateStr){
+  const d = new Date(dateStr);
+  return d.getDay() === 0;
+}
+
+function getTodayValid(){
+  let d = new Date();
+  if(d.getDay() === 0){
+    d.setDate(d.getDate() + 1);
+  }
+  return d.toISOString().split('T')[0];
+}
+
+function simpan(){
+  const tanggal = document.getElementById('tanggal').value;
+  const jumlah = parseInt(document.getElementById('jumlah').value);
+
+  if(!tanggal || !jumlah){
+    alert('Isi semua data');
+    return;
+  }
+
+  if(isMinggu(tanggal)){
+    alert('Hari Minggu tidak diperbolehkan!');
+    return;
+  }
+
+  data.push({tanggal, jumlah});
+  localStorage.setItem('tabungan', JSON.stringify(data));
+  document.getElementById('jumlah').value = '';
+  tampil();
+}
+
+function hapus(index){
+  if(confirm('Hapus data ini?')){
+    data.splice(index,1);
+    localStorage.setItem('tabungan', JSON.stringify(data));
+    tampil();
+  }
+}
+
+function tampil(){
+  const tbody = document.getElementById('data');
+  tbody.innerHTML = '';
+  let total = 0;
+
+  data.forEach((item,index) => {
+    total += item.jumlah;
+    tbody.innerHTML += `\n    <tr>\n      <td>${item.tanggal}</td>\n      <td>Rp ${formatRupiah(item.jumlah)}</td>\n      <td><button class="btn-hapus" onclick="hapus(${index})">Hapus</button></td>\n    </tr>`;
+  });
+
+  document.getElementById('total').innerText = formatRupiah(total);
+}
+
+function resetData(){
+  if(confirm('Hapus semua data?')){
+    localStorage.removeItem('tabungan');
+    data = [];
+    tampil();
+  }
+}
+
+const inputTanggal = document.getElementById('tanggal');
+inputTanggal.addEventListener('input', function(){
+  if(isMinggu(this.value)){
+    alert('Tidak bisa pilih hari Minggu');
+    this.value = getTodayValid();
+  }
+});
+
+window.onload = function(){
+  inputTanggal.value = getTodayValid();
+  tampil();
+}
+</script>
+</body>
+</html>
