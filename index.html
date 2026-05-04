@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Ari Sohandri Putra - No Code for You</title>
+
+<style type="text/css">
+body {
+    font-family: Consolas, monospace;
+}
+
+a:link { color: #0000FF; text-decoration: none; }
+a:visited { color: #0000FF; }
+a:hover { color: #FF0000; }
+a:active { color: #0000FF; }
+
+pre {
+    background: #f5f5f5;
+    padding: 15px;
+    border: 1px solid #ccc;
+    overflow-x: auto;
+}
+</style>
+</head>
+
+<body>
+<p><small>Host by <a href="https://docs.github.com/en/pages" target="_blank">Github Pages</a></small></p>
+<h1><strong>Ari Sohandri Putra</strong></h1>
+
+<p><img src="profile.png" width="100"></p>
+<p>Hi, Ari here, welcome!</p>
+<p>
+I’m really into outdoor stuff like camping, hunting, and hiking. 
+I first got interested in programming back in middle school, 
+and I’ve always loved tinkering with hardware too, things like 
+TV remotes, washing machines, even video game consoles.
+</p>
+
+<p>
+Back then, I got scolded a lot by my mom because I kept taking apart 
+stuff around the house just to experiment with it ;)
+</p>
+
+<p><strong>Software Project :</strong></p>
+<ul>
+  <li><a href="https://hardmon.github.io/">HardMon</a></li>
+  <li><a href="https://heatmon.github.io/">HeatMon</a></li>
+  <li><a href="https://ubattery.github.io/">uBattery</a></li>
+  <li><a href="https://udiscmounter.github.io/">uDiscMounter</a></li>
+</ul>
+
+<p><strong>Hardware Project :</strong></p>
+<p><img src="hwproject.png" width="59%"></p>
+<h3>1. nMaxMonitor (USB Sensor Monitor)</h3>
+<pre>
+┌───────────────────────────────────────────────┐
+│                    PC HOST                    │
+│                                               │
+│   ┌───────────────────────────────────────┐   │
+│   │  Sensor Software (HWiNFO / Custom)    │   │
+│   └───────────────┬───────────────────────┘   │
+│                   │ USB                      │
+└───────────────────┼───────────────────────────┘
+                    │
+                    ▼
+        ┌──────────────────────────────┐
+        │      USB PCB DEVICE          │
+        │                              │
+        │   ┌──────────────────────┐   │
+        │   │   Microcontroller    │   │
+        │   └───────┬──────────────┘   │
+        │           │                  │
+        │   ┌───────▼────────┐         │
+        │   │   OLED Display │         │
+        │   └────────────────┘         │
+        │                              │
+        │   RGB LED / Alert System     │
+        └──────────────────────────────┘
+</pre>
+
+<h3>2. peButton (Programmable External Button)</h3>
+<pre>
+        ┌──────────────┐
+        │   BUTTON     │
+        └──────┬───────┘
+               │
+               ▼
+        ┌──────────────┐
+        │ Microcontrol │
+        │ (ATmega)     │
+        └──────┬───────┘
+               │ USB
+               ▼
+        ┌──────────────┐
+        │ PC Software  │
+        │ (Hotkey /    │
+        │ Macro Tool)  │
+        └──────────────┘
+</pre>
+
+<h3>3. RhMax (Environmental Sensor Board)</h3>
+<pre>
+   ┌──────────────┐
+   │ Temp Sensor  │
+   └──────┬───────┘
+          │
+   ┌──────▼───────┐
+   │ Humidity     │
+   │ Sensor       │
+   └──────┬───────┘
+          │
+          ▼
+   ┌──────────────┐
+   │ Microcontrol │
+   └──────┬───────┘
+          │
+   ┌──────▼───────┐
+   │ OLED Display │
+   └──────────────┘
+</pre>
+
+<h3>4. USB Debug Board (Experimental)</h3>
+<pre>
+[PC USB]
+   │
+   ▼
+┌──────────────┐
+│ USB Interface│
+└──────┬───────┘
+       ▼
+┌──────────────┐
+│ Logic Analyzer│
+└──────┬───────┘
+       ▼
+┌──────────────┐
+│ Debug Output │
+│ (LED / UART) │
+└──────────────┘
+</pre>
+<hr>
+
+<p>Copyright (c) 2012 - 2026 Ari Sohandri Putra. All Rights Reserved.<br>Made with Love from East Lombok.</p>
+</body>
+</html>
