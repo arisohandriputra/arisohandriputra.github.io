@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Software Collection</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 50px 20px 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    p {
+      color: #cbd5e1;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      width: 260px;
+      transition: 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .card h2 {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #94a3b8;
+      min-height: 60px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #38bdf8;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      color: #64748b;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>💻 My Software Collection</h1>
+  <p>Tools & utilities I build for Windows</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>uDiscMounter</h2>
+    <p>Tool untuk mounting dan manage disk image dengan cepat dan ringan.</p>
+    <a class="btn" href="#">Download</a>
+  </div>
+
+  <div class="card">
+    <h2>HDDHealth Monitor</h2>
+    <p>Monitoring kesehatan HDD/SSD dengan informasi SMART realtime.</p>
+    <a class="btn" href="#">Download</a>
+  </div>
+
+  <div class="card">
+    <h2>Disk Benchmark</h2>
+    <p>Benchmark kecepatan read/write disk dengan hasil akurat dan cepat.</p>
+    <a class="btn" href="#">Download</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 My Software Project • Hosted on GitHub Pages
+</footer>
+
+</body>
+</html>
