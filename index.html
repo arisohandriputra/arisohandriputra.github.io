@@ -1,121 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Software Collection</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
+<title>Ari Sohandri Putra</title>
+
+<meta name="description" content="Official software portfolio of Ari Sohandri Putra. Tools for disk management, benchmarking, and hardware health monitoring including uDiscMounter, Disk Benchmark, and HDDHealth Monitor.">
+<meta name="keywords" content="uDiscMounter, Disk Benchmark, HDDHealth Monitor, disk tools, storage utility, benchmarking software, disk health, SSD tools">
+<meta name="author" content="Ari Sohandri Putra">
+
+<meta property="og:title" content="Ari Sohandri Putra | Software Tools">
+<meta property="og:description" content="Professional tools for disk management, benchmarking, and hardware monitoring.">
+<meta property="og:type" content="website">
+
+<style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-      text-align: center;
+        margin: 0;
+        font-family: "Georgia", serif;
+        background: #f7f3e9;
+        color: #2b2b2b;
     }
 
     header {
-      padding: 50px 20px 20px;
+        text-align: center;
+        padding: 60px 20px 30px;
+        border-bottom: 1px solid #ddd;
+        background: #fffaf0;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 36px;
+    header h1 {
+        font-size: 36px;
+        margin: 0;
     }
 
-    p {
-      color: #cbd5e1;
+    header p {
+        font-size: 16px;
+        color: #666;
+        margin-top: 10px;
     }
 
     .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 30px;
-      gap: 20px;
+        max-width: 900px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    .intro {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 18px;
+        color: #444;
+        line-height: 1.6;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
     }
 
     .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 15px;
-      padding: 20px;
-      width: 260px;
-      transition: 0.3s;
-      backdrop-filter: blur(10px);
+        background: white;
+        border: 1px solid #e5e5e5;
+        border-radius: 12px;
+        padding: 20px;
+        transition: 0.3s ease;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,0.08);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
     .card h2 {
-      margin: 10px 0;
-      font-size: 20px;
+        font-size: 20px;
+        margin-bottom: 10px;
     }
 
     .card p {
-      font-size: 14px;
-      color: #94a3b8;
-      min-height: 60px;
+        font-size: 14px;
+        color: #555;
+        line-height: 1.5;
     }
 
     .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #38bdf8;
-      color: black;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+        display: inline-block;
+        margin-top: 12px;
+        padding: 10px 14px;
+        border: 1px solid #333;
+        text-decoration: none;
+        color: #333;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: 0.3s;
     }
 
     .btn:hover {
-      background: #0ea5e9;
+        background: #333;
+        color: white;
     }
 
     footer {
-      margin-top: 50px;
-      padding: 20px;
-      color: #64748b;
-      font-size: 12px;
+        text-align: center;
+        padding: 30px;
+        font-size: 12px;
+        color: #777;
+        border-top: 1px solid #ddd;
+        margin-top: 40px;
     }
-  </style>
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>💻 My Software Collection</h1>
-  <p>Tools & utilities I build for Windows</p>
+    <h1>Ari Sohandri Putra</h1>
+    <p>Pro Dev, IT Holic, Mancing mania.</p>
 </header>
 
 <div class="container">
 
-  <div class="card">
-    <h2>uDiscMounter</h2>
-    <p>Tool untuk mounting dan manage disk image dengan cepat dan ringan.</p>
-    <a class="btn" href="#">Download</a>
-  </div>
+    <div class="intro">
+        I build lightweight and efficient Windows tools focused on storage performance, disk benchmarking, and hardware health monitoring.
+    </div>
 
-  <div class="card">
-    <h2>HDDHealth Monitor</h2>
-    <p>Monitoring kesehatan HDD/SSD dengan informasi SMART realtime.</p>
-    <a class="btn" href="#">Download</a>
-  </div>
+    <div class="grid">
 
-  <div class="card">
-    <h2>Disk Benchmark</h2>
-    <p>Benchmark kecepatan read/write disk dengan hasil akurat dan cepat.</p>
-    <a class="btn" href="#">Download</a>
-  </div>
+        <div class="card">
+            <h2>uDiscMounter</h2>
+            <p>Fast and simple disk image mounting tool designed for easy virtual drive management.</p>
+            <a class="btn" href="https://udiscmounter.github.io/" target="_blank">Visit Project</a>
+        </div>
+
+        <div class="card">
+            <h2>Disk Benchmark</h2>
+            <p>Accurate disk performance testing tool for measuring read/write speed and system storage performance.</p>
+            <a class="btn" href="https://diskbenchmark.github.io/" target="_blank">Visit Project</a>
+        </div>
+
+        <div class="card">
+            <h2>HDDHealth Monitor</h2>
+            <p>Real-time SMART monitoring tool for HDD and SSD health tracking and diagnostics.</p>
+            <a class="btn" href="https://hddmonitor.github.io/" target="_blank">Visit Project</a>
+        </div>
+
+    </div>
 
 </div>
 
 <footer>
-  © 2026 My Software Project • Hosted on GitHub Pages
+    © 2026 Ari Sohandri Putra • GitHub Pages • All Rights Reserved
 </footer>
 
 </body>
