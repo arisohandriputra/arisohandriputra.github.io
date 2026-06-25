@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>CPU Metic Benchmark</title>
+
+<style>
+body{
+    font-family:Segoe UI;
+    background:#f4f4f4;
+    margin:20px;
+}
+
+.card{
+    background:white;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+
+a{
+    text-decoration:none;
+    color:#0066cc;
+    font-weight:bold;
+}
+
+.score{
+    float:right;
+    font-size:22px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<h1>CPU Metic Benchmark Database</h1>
+
+<div id="list">
+Loading...
+</div>
+
+<script>
+
+fetch("https://cpumetic-default-rtdb.asia-southeast1.firebasedatabase.app/.json")
+.then(r=>r.json())
+.then(data=>{
+
+let html="";
+
+Object.keys(data).forEach(id=>{
+
+let pc=data[id];
+
+html+=`
+<div class="card">
+
+<div class="score">
+${pc.result.score}/10
+</div>
+
+<a href="view.html?id=${id}">
+${id}
+</a>
+
+<br><br>
+
+${pc.cpu.name}
+<br>
+
+${pc.cpu.cores}
+<br>
+
+${pc.report_date}
+
+</div>
+`;
+
+});
+
+document.getElementById("list").innerHTML=html;
+
+});
+
+</script>
+
+</body>
+</html>

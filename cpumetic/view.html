@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>CPU Metic Report</title>
+
+<style>
+
+body{
+    font-family:Segoe UI;
+    background:#f4f4f4;
+    margin:20px;
+}
+
+.scorebox{
+    background:#1f6feb;
+    color:white;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.score{
+    font-size:60px;
+    font-weight:bold;
+}
+
+.card{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+td{
+    padding:8px;
+    border-bottom:1px solid #ddd;
+}
+
+.title{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="content">
+Loading...
+</div>
+
+<script>
+
+const id=
+new URLSearchParams(location.search).get("id");
+
+fetch(
+"https://cpumetic-default-rtdb.asia-southeast1.firebasedatabase.app/"+id+".json"
+)
+.then(r=>r.json())
+.then(pc=>{
+
+let html=`
+
+<div class="scorebox">
+
+<div>${id}</div>
+
+<div class="score">
+${pc.result.score}
+</div>
+
+<div>
+${pc.result.rating_text}
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="title">
+CPU Information
+</div>
+
+<table>
+
+<tr>
+<td>Processor</td>
+<td>${pc.cpu.name}</td>
+</tr>
+
+<tr>
+<td>Clock Speed</td>
+<td>${pc.cpu.speed}</td>
+</tr>
+
+<tr>
+<td>Cores</td>
+<td>${pc.cpu.cores}</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<div class="title">
+Compression Test
+</div>
+
+<table>
+
+<tr>
+<td>Speed</td>
+<td>${pc.compression.speed}</td>
+</tr>
+
+<tr>
+<td>Time</td>
+<td>${pc.compression.time}</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<div class="title">
+Cryptographic Test
+</div>
+
+<table>
+
+<tr>
+<td>Speed</td>
+<td>${pc.cryptographic.speed}</td>
+</tr>
+
+<tr>
+<td>Time</td>
+<td>${pc.cryptographic.time}</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<div class="title">
+Benchmark Result
+</div>
+
+<table>
+
+<tr>
+<td>Score</td>
+<td>${pc.result.score}/10</td>
+</tr>
+
+<tr>
+<td>Rating</td>
+<td>${pc.result.rating_text}</td>
+</tr>
+
+<tr>
+<td>Date</td>
+<td>${pc.report_date}</td>
+</tr>
+
+</table>
+
+</div>
+
+`;
+
+document.getElementById("content").innerHTML=html;
+
+});
+
+</script>
+
+</body>
+</html>
