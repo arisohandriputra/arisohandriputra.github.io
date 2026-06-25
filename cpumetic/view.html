@@ -3,36 +3,84 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CPU Metic Report</title>
 
 <style>
 
 body{
-    font-family:Segoe UI;
-    background:#f4f4f4;
-    margin:20px;
+    margin:0;
+    padding:10px;
+    background:#c0c0c0;
+    font-family:Tahoma,Verdana,Arial,sans-serif;
+    font-size:12px;
+    color:#000;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.header{
+    background:#000080;
+    color:white;
+    padding:8px;
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+
+    border-top:2px solid #ffffff;
+    border-left:2px solid #ffffff;
+    border-right:2px solid #404040;
+    border-bottom:2px solid #404040;
 }
 
 .scorebox{
-    background:#1f6feb;
-    color:white;
-    padding:20px;
-    border-radius:10px;
+    margin-top:10px;
+    background:#d4d0c8;
+    padding:15px;
     text-align:center;
-    margin-bottom:20px;
+
+    border-top:2px solid #ffffff;
+    border-left:2px solid #ffffff;
+    border-right:2px solid #404040;
+    border-bottom:2px solid #404040;
 }
 
-.score{
-    font-size:60px;
+.userid{
+    font-size:14px;
     font-weight:bold;
 }
 
-.card{
-    background:white;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:15px;
-    box-shadow:0 2px 8px rgba(0,0,0,.1);
+.score{
+    font-size:72px;
+    font-weight:bold;
+    color:#000080;
+    line-height:1;
+}
+
+.rating{
+    font-size:16px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.panel{
+    margin-top:10px;
+    background:#d4d0c8;
+
+    border-top:2px solid #ffffff;
+    border-left:2px solid #ffffff;
+    border-right:2px solid #404040;
+    border-bottom:2px solid #404040;
+}
+
+.paneltitle{
+    background:#000080;
+    color:white;
+    padding:5px;
+    font-weight:bold;
 }
 
 table{
@@ -42,13 +90,54 @@ table{
 
 td{
     padding:8px;
-    border-bottom:1px solid #ddd;
+    border:1px solid #808080;
 }
 
-.title{
-    font-size:20px;
+td:first-child{
+    width:35%;
+    background:#e8e8e8;
     font-weight:bold;
-    margin-bottom:10px;
+}
+
+.footer{
+    text-align:center;
+    margin-top:15px;
+    color:#444;
+    font-size:11px;
+}
+
+.loading{
+    text-align:center;
+    font-size:20px;
+    margin-top:50px;
+}
+
+.error{
+    color:red;
+    text-align:center;
+    font-size:18px;
+    margin-top:50px;
+}
+
+@media(max-width:600px){
+
+    body{
+        font-size:11px;
+    }
+
+    .score{
+        font-size:48px;
+    }
+
+    td{
+        display:block;
+        width:auto;
+    }
+
+    td:first-child{
+        width:auto;
+    }
+
 }
 
 </style>
@@ -56,41 +145,67 @@ td{
 </head>
 <body>
 
-<div id="content">
-Loading...
+<div id="content" class="loading">
+Loading Benchmark Report...
 </div>
 
 <script>
 
-const id=
-new URLSearchParams(location.search).get("id");
+const id = new URLSearchParams(window.location.search).get("id");
+
+if(!id)
+{
+    document.getElementById("content").innerHTML =
+    '<div class="error">No User ID Specified</div>';
+}
+else
+{
 
 fetch(
-"https://cpumetic-default-rtdb.asia-southeast1.firebasedatabase.app/"+id+".json"
+"https://cpumetic-default-rtdb.asia-southeast1.firebasedatabase.app/" +
+id +
+".json"
 )
-.then(r=>r.json())
-.then(pc=>{
 
-let html=`
+.then(response => response.json())
+
+.then(pc => {
+
+if(!pc)
+{
+    document.getElementById("content").innerHTML =
+    '<div class="error">Benchmark Report Not Found</div>';
+    return;
+}
+
+let html = `
+
+<div class="container">
+
+<div class="header">
+CPU METIC ONLINE BENCHMARK
+</div>
 
 <div class="scorebox">
 
-<div>${id}</div>
+<div class="userid">
+${id}
+</div>
 
 <div class="score">
 ${pc.result.score}
 </div>
 
-<div>
+<div class="rating">
 ${pc.result.rating_text}
 </div>
 
 </div>
 
-<div class="card">
+<div class="panel">
 
-<div class="title">
-CPU Information
+<div class="paneltitle">
+CPU INFORMATION
 </div>
 
 <table>
@@ -106,7 +221,7 @@ CPU Information
 </tr>
 
 <tr>
-<td>Cores</td>
+<td>Core Count</td>
 <td>${pc.cpu.cores}</td>
 </tr>
 
@@ -114,21 +229,21 @@ CPU Information
 
 </div>
 
-<div class="card">
+<div class="panel">
 
-<div class="title">
-Compression Test
+<div class="paneltitle">
+COMPRESSION TEST
 </div>
 
 <table>
 
 <tr>
-<td>Speed</td>
+<td>Compression Speed</td>
 <td>${pc.compression.speed}</td>
 </tr>
 
 <tr>
-<td>Time</td>
+<td>Execution Time</td>
 <td>${pc.compression.time}</td>
 </tr>
 
@@ -136,21 +251,21 @@ Compression Test
 
 </div>
 
-<div class="card">
+<div class="panel">
 
-<div class="title">
-Cryptographic Test
+<div class="paneltitle">
+CRYPTOGRAPHIC TEST
 </div>
 
 <table>
 
 <tr>
-<td>Speed</td>
+<td>Encryption Speed</td>
 <td>${pc.cryptographic.speed}</td>
 </tr>
 
 <tr>
-<td>Time</td>
+<td>Execution Time</td>
 <td>${pc.cryptographic.time}</td>
 </tr>
 
@@ -158,17 +273,17 @@ Cryptographic Test
 
 </div>
 
-<div class="card">
+<div class="panel">
 
-<div class="title">
-Benchmark Result
+<div class="paneltitle">
+BENCHMARK RESULT
 </div>
 
 <table>
 
 <tr>
-<td>Score</td>
-<td>${pc.result.score}/10</td>
+<td>Performance Score</td>
+<td>${pc.result.score}/${pc.result.score_max}</td>
 </tr>
 
 <tr>
@@ -177,7 +292,7 @@ Benchmark Result
 </tr>
 
 <tr>
-<td>Date</td>
+<td>Report Date</td>
 <td>${pc.report_date}</td>
 </tr>
 
@@ -185,11 +300,28 @@ Benchmark Result
 
 </div>
 
+<div class="footer">
+CPU Metic Benchmark Database © 2026
+</div>
+
+</div>
+
 `;
 
-document.getElementById("content").innerHTML=html;
+document.getElementById("content").innerHTML = html;
+
+})
+
+.catch(error => {
+
+document.getElementById("content").innerHTML =
+'<div class="error">Failed To Load Benchmark Report</div>';
+
+console.log(error);
 
 });
+
+}
 
 </script>
 
