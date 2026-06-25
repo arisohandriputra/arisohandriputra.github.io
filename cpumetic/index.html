@@ -1,90 +1,260 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
+
 <meta charset="utf-8">
-<title>CPU Metic Benchmark</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>CPU Metic Benchmark Database</title>
 
 <style>
+
 body{
-    font-family:Segoe UI;
-    background:#f4f4f4;
-    margin:20px;
+    margin:0;
+    padding:10px;
+    background:#c0c0c0;
+    font-family:Tahoma,Verdana,Arial,sans-serif;
+    font-size:12px;
 }
 
-.card{
-    background:white;
-    padding:15px;
-    margin-bottom:10px;
-    border-radius:8px;
-    box-shadow:0 2px 6px rgba(0,0,0,.1);
+.container{
+    max-width:1000px;
+    margin:auto;
 }
 
-a{
-    text-decoration:none;
-    color:#0066cc;
+.header{
+    background:#000080;
+    color:white;
+    padding:8px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+
+    border-top:2px solid #ffffff;
+    border-left:2px solid #ffffff;
+    border-right:2px solid #404040;
+    border-bottom:2px solid #404040;
+}
+
+.subheader{
+    margin-top:8px;
+    background:#d4d0c8;
+    padding:8px;
+
+    border-top:2px solid #ffffff;
+    border-left:2px solid #ffffff;
+    border-right:2px solid #404040;
+    border-bottom:2px solid #404040;
+}
+
+.panel{
+    margin-top:10px;
+    background:#d4d0c8;
+
+    border-top:2px solid #ffffff;
+    border-left:2px solid #ffffff;
+    border-right:2px solid #404040;
+    border-bottom:2px solid #404040;
+}
+
+.paneltitle{
+    background:#000080;
+    color:white;
+    padding:5px;
+    font-weight:bold;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#e0e0e0;
+    padding:8px;
+    border:1px solid #808080;
+}
+
+td{
+    padding:8px;
+    border:1px solid #808080;
+}
+
+tr:hover{
+    background:#efefef;
+}
+
+.rank{
+    text-align:center;
     font-weight:bold;
 }
 
 .score{
-    float:right;
-    font-size:22px;
+    text-align:center;
+    font-weight:bold;
+    color:#000080;
+}
+
+a{
+    color:#0000cc;
+    text-decoration:none;
     font-weight:bold;
 }
+
+a:hover{
+    text-decoration:underline;
+}
+
+.loading{
+    padding:20px;
+    text-align:center;
+}
+
+.footer{
+    margin-top:10px;
+    text-align:center;
+    font-size:11px;
+    color:#444;
+}
+
+@media(max-width:700px){
+
+table{
+    font-size:11px;
+}
+
+th:nth-child(3),
+td:nth-child(3){
+    display:none;
+}
+
+}
+
 </style>
 
 </head>
+
 <body>
 
-<h1>CPU Metic Benchmark Database</h1>
+<div class="container">
 
-<div id="list">
-Loading...
+<div class="header">
+CPU METIC BENCHMARK DATABASE
+</div>
+
+<div class="subheader">
+Online CPU Benchmark Repository
+</div>
+
+<div class="panel">
+
+<div class="paneltitle">
+GLOBAL RANKING
+</div>
+
+<div id="list" class="loading">
+Loading benchmark database...
+</div>
+
+</div>
+
+<div class="footer">
+CPU Metic Benchmark Database © 2026
+</div>
+
 </div>
 
 <script>
 
-fetch("https://cpumetic-default-rtdb.asia-southeast1.firebasedatabase.app/.json")
-.then(r=>r.json())
-.then(data=>{
+fetch(
+"https://cpumetic-default-rtdb.asia-southeast1.firebasedatabase.app/.json"
+)
 
-let html="";
+.then(r => r.json())
 
-Object.keys(data).forEach(id=>{
+.then(data => {
 
-let pc=data[id];
+let arr = [];
 
-html+=`
-<div class="card">
+Object.keys(data).forEach(id => {
 
-<div class="score">
-${pc.result.score}/10
-</div>
+arr.push({
+id:id,
+score:data[id].result.score,
+cpu:data[id].cpu.name,
+cores:data[id].cpu.cores,
+date:data[id].report_date
+});
 
-<a href="view.html?id=${id}">
-${id}
+});
+
+arr.sort((a,b) => b.score - a.score);
+
+let html = `
+<table>
+
+<tr>
+<th width="60">Rank</th>
+<th>User ID</th>
+<th>Processor</th>
+<th width="90">Score</th>
+<th width="150">Date</th>
+</tr>
+`;
+
+arr.forEach((item,index)=>{
+
+html += `
+<tr>
+
+<td class="rank">
+#${index+1}
+</td>
+
+<td>
+<a href="view.html?id=${item.id}">
+${item.id}
 </a>
+</td>
 
-<br><br>
-
-${pc.cpu.name}
+<td>
+${item.cpu}
 <br>
+${item.cores}
+</td>
 
-${pc.cpu.cores}
-<br>
+<td class="score">
+${item.score}/10
+</td>
 
-${pc.report_date}
+<td>
+${item.date}
+</td>
 
-</div>
+</tr>
 `;
 
 });
 
-document.getElementById("list").innerHTML=html;
+html += "</table>";
+
+document.getElementById("list").innerHTML = html;
+
+})
+
+.catch(error => {
+
+document.getElementById("list").innerHTML =
+"Failed to load benchmark database.";
+
+console.log(error);
 
 });
 
 </script>
 
 </body>
+
 </html>
