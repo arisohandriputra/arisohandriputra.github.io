@@ -153,6 +153,29 @@ pre.ascii {
   word-break: break-word;
 }
 footer { margin-top: 2em; }
+
+.savings-total {
+  margin: 1.5em 0 0;
+  padding: 16px 12px;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: clamp(25px, 5vw, 38px);
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #006600;
+  background: #f7f7f7;
+  border: 1px solid #cccccc;
+  border-top: 3px solid #006600;
+  overflow-wrap: anywhere;
+  text-shadow: 1px 1px 0 #ffffff;
+}
+.savings-total.error {
+  color: #666666;
+  font-size: 16px;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+
 @media (max-width: 900px) {
   .works { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -232,9 +255,67 @@ U p d a t e d : <strong>30-09-2026 18:31</strong></pre>
       <figcaption>Listen on BandCamp: <a href="https://areyxxmusic.bandcamp.com/album/mind" target="_blank" rel="noopener noreferrer">https://areyxxmusic.bandcamp.com/album/mind</a></figcaption>
     </figure>
   </div>
+  <div id="savingsTotal" class="savings-total" aria-label="Savings amount">...</div>
   <footer>
     <p>&copy; 2011 &ndash; 2026 Ari Sohandri Putra. All Rights Reserved.</p>
   </footer>
 </main>
+
+<script type="text/javascript">
+(function () {
+  var output = document.getElementById("savingsTotal");
+  var request = new XMLHttpRequest();
+
+  request.open("GET", "tabungan.txt?v=" + new Date().getTime(), true);
+
+  request.onreadystatechange = function () {
+    if (request.readyState !== 4) {
+      return;
+    }
+
+    if (request.status >= 200 && request.status < 300) {
+      var lines = request.responseText.split(/\r?\n/);
+      var total = 0;
+      var found = false;
+      var valid = true;
+
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].replace(/^\s+|\s+$/g, "");
+
+        if (line === "") {
+          continue;
+        }
+
+        line = line.replace(/[.\s]/g, "");
+
+        if (!/^\d+$/.test(line)) {
+          valid = false;
+          break;
+        }
+
+        total += parseInt(line, 10);
+        found = true;
+      }
+
+      if (valid && found) {
+        output.innerHTML = "Rp " + total.toLocaleString("id-ID");
+        output.className = "savings-total";
+      } else if (valid && !found) {
+        output.innerHTML = "Rp 0";
+        output.className = "savings-total";
+      } else {
+        output.innerHTML = "—";
+        output.className = "savings-total error";
+      }
+    } else {
+      output.innerHTML = "—";
+      output.className = "savings-total error";
+    }
+  };
+
+  request.send(null);
+})();
+</script>
+
 </body>
 </html>
