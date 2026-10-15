@@ -205,7 +205,7 @@ footer { margin-top: 2em; }
 
 H O M E P A G E   E S T .   2 0 1 1                                                             
 H o s t : <a href="/">arisohandriputra.github.io</a>
-U p d a t e d : <strong>30-09-2026 18:31</strong></pre>
+U p d a t e d : <strong id="updatedTime">Loading...</strong></pre>
   <h1 class="style2"><span class="style4">W e l c o m e<em> !</em></span></h1>
   <p>Hi, I'm <span class="style1">Ari</span>.</p>
   <p>I've been around computers and IT for more than 15 years, mostly doing software development and computer networking. I've always enjoyed building things, figuring out how they work, and turning ideas into software people can actually use.</p>
@@ -260,6 +260,53 @@ U p d a t e d : <strong>30-09-2026 18:31</strong></pre>
     <p>&copy; 2011 &ndash; 2026 Ari Sohandri Putra. All Rights Reserved.</p>
   </footer>
 </main>
+
+<script type="text/javascript">
+(function () {
+  var output = document.getElementById("updatedTime");
+  var request = new XMLHttpRequest();
+
+  request.open(
+    "GET",
+    "https://api.github.com/repos/arisohandriputra/arisohandriputra.github.io/commits?path=tabungan.txt&per_page=1",
+    true
+  );
+
+  request.onreadystatechange = function () {
+    if (request.readyState !== 4) {
+      return;
+    }
+
+    if (request.status >= 200 && request.status < 300) {
+      try {
+        var commits = JSON.parse(request.responseText);
+
+        if (commits.length > 0 && commits[0].commit &&
+            commits[0].commit.committer &&
+            commits[0].commit.committer.date) {
+          var date = new Date(commits[0].commit.committer.date);
+          var day = ("0" + date.getDate()).slice(-2);
+          var month = ("0" + (date.getMonth() + 1)).slice(-2);
+          var year = date.getFullYear();
+          var hour = ("0" + date.getHours()).slice(-2);
+          var minute = ("0" + date.getMinutes()).slice(-2);
+
+          output.innerHTML = day + "-" + month + "-" + year +
+            " " + hour + ":" + minute;
+        } else {
+          output.innerHTML = "Unavailable";
+        }
+      } catch (e) {
+        output.innerHTML = "Unavailable";
+      }
+    } else {
+      output.innerHTML = "Unavailable";
+    }
+  };
+
+  request.send(null);
+})();
+</script>
 
 <script type="text/javascript">
 (function () {
